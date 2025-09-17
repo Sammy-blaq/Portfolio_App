@@ -1,0 +1,193 @@
+/* 
+--- 01 TYPOGRAPHY
+
+-- FONT SIZE (rem)
+1.0 / 1.2 / 1.4 / 1.6 / 1.8 / 2.0 / 2.4 / 3.0 / 3.6 / 4.4 / 5.2 / 6.2 / 7.4 / 8.6 / 9.8
+
+-- Font weights:
+Default: 400
+Medium: 500
+Semi-Bold: 600
+Bold: 700
+
+-- Line heights:
+Default: 1
+Small:1 .05
+medium: 1.2
+large: 1.8
+
+Paragraph default: 1.6
+
+-- Letter spacing
+- 0.5px
+- 0.75px
+
+-- COLORS
+-- Primary: #007bff
+-- Tint:
+#e6f2ff
+
+-- Shade:
+#004a99
+
+
+-- Greys:
+#555
+#333
+
+*/
+
+/* GLOBAL RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* font-size: 10px; */
+  /* 10px / 16 = 0.625 = 62.5% */
+  /* Percentage of users browsers font-size settings */
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+
+  /* Only works if there is nothing absolutely positioned in relation to body */
+  overflow-x: hidden;
+}
+
+/* *************************** */
+/* GENERAL REUSABLE COMPONENTS */
+/* *************************** */
+
+.main_container {
+  /* 1140 */
+  max-width: 140rem;
+  padding: 0 3.2rem;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid_cols_2 {
+  grid-template-columns: repeat(2, 1fr) !important;
+}
+
+.grid_cols_3 {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+.grid_cols_4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  color: #808080;
+}
+
+.subtitle_text {
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.secondary_heading {
+  font-size: 3.2rem;
+  margin-bottom: 3rem;
+}
+
+/* 
+*****************************
+COMPONENTS WITH SAME PROPERTIES
+*****************************
+*/
+.main-header,
+.logos,
+.service_detail,
+.carousel-item,
+.success_story_item {
+  background-color: #e6f2ff;
+}
+
+.service_left_text,
+.success_story_text {
+  width: 40%;
+  font-size: 1.6rem;
+}
+
+.service_left_icon,
+.success_story_icon {
+  font-size: 10rem;
+  color: #007bff;
+  margin-bottom: 1rem;
+}
+
+.section_hero_title,
+.developer_name,
+.project_title,
+.subtitle_text,
+.secondary_heading,
+.project_category,
+.project_description,
+.service_left_text,
+.service_detail,
+.award_title,
+.award_icon,
+.success_story_text,
+.success_story_item,
+.contact_box {
+  color: #333;
+}
+
+/* 
+**************************
+MAKING THE ACCORDION WORK
+**************************
+*/
+.service_description.active {
+  display: block;
+  transition: all 6s ease-in-out;
+}
+
+.service_description.active:target {
+  transition: all 0.6s ease-in-out;
+}
+
+.change_icon .service_right_icon[name="remove"] {
+  display: block;
+}
+
+.change_icon .service_right_icon[name="add"] {
+  display: none;
+}
+
+/* FOCUS */
+*:focus {
+  outline: none;
+  /* outline: 4px dotted #007bff; */
+  /* outline-offset: 0.8rem; */
+
+  box-shadow: 0 0 0 0.8rem rgb(0, 74, 153, 0.2);
+}
+
+/* HELPER / SETTINGS CLASSES */
+.margin_bottom_medium {
+  margin-bottom: 6rem !important;
+}
+
+.margin_bottom_small {
+  margin-bottom: 2rem !important;
+}
