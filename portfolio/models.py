@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Biography Model
 class Biography(models.Model):
@@ -33,6 +34,7 @@ class Project(models.Model):
     title = models.CharField(max_length=200)
     category = models.CharField(max_length=100)
     description = models.TextField()
+    date = models.DateField(default=timezone.now)
     image = models.ImageField(upload_to='projects/')
     link = models.URLField(max_length=200, blank=True)
     github_link = models.URLField(max_length=200, blank=True)
