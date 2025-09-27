@@ -95,3 +95,7 @@ class HeadingText(models.Model):
 
     def __str__(self):
         return self.text
+    
+class SuccessStory(models.Model):
+    success_count = models.IntegerField()
+    success_description = models.CharField(max_length=100)
