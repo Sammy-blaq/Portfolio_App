@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
+
 # Biography Model
 class Biography(models.Model):
     name = models.CharField(max_length=100)
@@ -11,16 +12,18 @@ class Biography(models.Model):
 
     def __str__(self):
         return self.name
-    
+
+
 # Service Model
 class Service(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
-    icon = models.CharField(max_length=100)  # You can store icon class names or paths
+
 
     def __str__(self):
         return self.title
-    
+
+
 # Logos Model
 class Logos(models.Model):
     name = models.CharField(max_length=100)
@@ -28,6 +31,7 @@ class Logos(models.Model):
 
     def __str__(self):
         return self.name
+
 
 # Project Model
 class Project(models.Model):
@@ -41,7 +45,8 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
-    
+
+
 class Achievement(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
@@ -52,7 +57,8 @@ class Achievement(models.Model):
 
     def __str__(self):
         return self.title
-    
+
+
 class Skill(models.Model):
     name = models.CharField(max_length=100)
     proficiency = models.IntegerField()  # Percentage from 0 to 100
@@ -60,11 +66,13 @@ class Skill(models.Model):
     def __str__(self):
         return self.name
 
+
 # Mails Model
 class Email(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=100, blank=False)
     message = models.TextField()
+
 
 class AboutWork(models.Model):
     title = models.CharField(max_length=200)
@@ -72,14 +80,16 @@ class AboutWork(models.Model):
 
     def __str__(self):
         return self.title
-    
+
+
 class ExtraText(models.Model):
     text = models.TextField()
     icon = models.CharField(max_length=100)  # You can store icon class names or paths_
 
     def __str__(self):
         return self.text[:50]  # Return first 50 characters for representation
-    
+
+
 class HeadingText(models.Model):
     text = models.CharField(max_length=200)
 
