@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Biography, Service, Logos, Project, Achievement, Skill, HeadingText, Email, ExtraText, AboutWork
+from .models import Biography, Service, Logos, Project, Achievement, Skill, HeadingText, Email, ExtraText, AboutWork, SuccessStory
 
 # Register your models here.
 admin.site.register(Biography)
@@ -12,3 +12,4 @@ admin.site.register(HeadingText)
 admin.site.register(Email)
 admin.site.register(ExtraText)
 admin.site.register(AboutWork)
+admin.site.register(SuccessStory)
