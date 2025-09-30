@@ -1,4 +1,5 @@
 {% load static %}
+{% load widget_tweaks %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -67,12 +68,13 @@
     rel="stylesheet" href="{% static "./css/general.css" %}" />
     <title>{% block title %}{% endblock title %}</title>
   </head>
-  <body>
+  <body class="body">
     <main>
       {% block header %}{% endblock header %} 
       {% block content %}{% endblock content %} 
       {% block footer %}{% endblock footer %}
     </main>
+    {% block message %}{% endblock message %}
     <!-- JAVASCRIPT -->
     <script defer src="{% static "./js/script.js" %}"></script>
   </body>
