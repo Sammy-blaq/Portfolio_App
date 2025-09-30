@@ -1,3 +1,21 @@
+.body {
+  position: relative;
+}
+
+.success-message {
+  display: none;
+  position: absolute;
+  width: 10rem;
+  padding: 1rem 2rem;
+  bottom: 5rem;
+  left: 10rem;
+}
+
+.success-message p {
+  font-size: 1.8rem;
+  color: #00ff00;
+}
+
 /* MAIN HEADER */
 
 .main-header {
