@@ -5,5 +5,5 @@ app_name = 'portfolio'
 
 urlpatterns = [
     # Define your URL patterns here
-    path('', views.index, name='home'),  # Placeholder view
+    path('', views.index, name='index'),
 ]
