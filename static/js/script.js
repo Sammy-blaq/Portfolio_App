@@ -93,7 +93,6 @@ function checkFlexGap() {
   document.body.appendChild(flex);
   var isSupported = flex.scrollHeight === 1;
   flex.parentNode.removeChild(flex);
-  console.log(isSupported);
 
   if (!isSupported) document.body.classList.add("no-flexbox-gap");
 }
@@ -107,4 +106,15 @@ const headerEl = document.querySelector(".main-header");
 
 btnNavEl.addEventListener("click", function () {
   headerEl.classList.toggle("nav-open");
+});
+
+//  SHOW MAIL SUCCESS MESSAGE
+const submitButton = document.querySelector(".btn_send");
+const successMessage = document.querySelector(".success-message");
+
+submitButton.addEventListener("click", function (e) {
+  // setTimeout(function () {
+  //   successMessage.style.display = "block";
+  // }, 3000); // Show the message after 3 seconds
+  console.log("clicked");
 });
