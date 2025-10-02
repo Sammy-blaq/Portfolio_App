@@ -25,28 +25,22 @@ Abdulsamad | Full-Stack Web Developer {% endblock title %} {% block header %}
 <section class="section-hero">
   <div class="main_container">
     <header class="section_hero_header">
-      <h1 class="section_hero_title">
-        Innovative solutions in web & mobile development for seamless user
-        experiences
-      </h1>
+      <h1 class="section_hero_title">{{main_heading.text}}</h1>
     </header>
 
     <div id="about" class="grid grid_cols_3 biography_box">
       <div class="biography_box_left">
         <div class="biography_box">
           <p class="subtitle">Biography</p>
-          <p class="subtitle_text biography_text">
-            full-stack developer specializing in web and mobile apps, focusing
-            on intuitive design and innovative AI solutions
-          </p>
+          <p class="subtitle_text biography_text">{{biography.description}}</p>
         </div>
         <div>
           <p class="subtitle">Services</p>
           <div class="subtitle_text services_list">
-            <p>Web development</p>
-            <p>Web Scrapping</p>
-            <p>UI/UX design</p>
-            <p>AI and automation solutions</p>
+            <!-- Iterating through the dictionary of Skills -->
+            {% for skill in skills %}
+            <p>{{ skill.name }}</p>
+            {% endfor %}
           </div>
         </div>
       </div>
@@ -57,60 +51,44 @@ Abdulsamad | Full-Stack Web Developer {% endblock title %} {% block header %}
             <div class="developer_image_box">
               <div class="profile_image">
                 <img
-                  src="{% static './img/Sammy.webp' %}"
+                  src="{{biography.profile_image.url}}"
                   alt="Image of the developer"
                   width="200"
                   class="developer_image"
                 />
               </div>
             </div>
-            <p class="developer_name">Hi, I am Abdullahi Abdulsamad Yahaya</p>
+            <p class="developer_name">Hi, I am {{biography.name}}</p>
           </div>
           <div class="social_link_box">
-            <a
-              href="https://www.instagram.com/sammyblaqofficiql?igsh=YzljYTk1ODg3Zg=="
-              target="_blank"
-              ><ion-icon name="logo-instagram" class="social_icon"></ion-icon
+            <!-- Iterating through the dictionary of Social Media links -->
+            {% for link in social_links %}
+            <a href="{{link.url}}" target="_blank"
+              ><ion-icon name="{{link.icon}}" class="social_icon"></ion-icon
             ></a>
-            <a
-              href="https://www.facebook.com/abdulsamad.abdullahi.52"
-              target="_blank"
-              ><ion-icon name="logo-facebook" class="social_icon"></ion-icon
-            ></a>
-            <a
-              href="https://www.linkedin.com/in/abdulsamad-abdullahi-4a39852b6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-              target="_blank"
-              ><ion-icon name="logo-linkedin" class="social_icon"></ion-icon
-            ></a>
-            <a href="https://github.com/Sammy-blaq" target="_blank"
-              ><ion-icon name="logo-github" class="social_icon"></ion-icon
-            ></a>
+            {% endfor %}
           </div>
         </div>
       </div>
 
       <div class="biography_box_right">
+        <!-- Iterating through the dictionary of About Work -->
+        {% for work in about_work %}
         <div class="right_box_text">
-          <p class="subtitle">Years of experience</p>
-          <p class="subtitle_text experience_value">3+</p>
+          <p class="subtitle">{{work.title}}</p>
+          <p class="subtitle_text experience_value">{{work.number}}</p>
         </div>
-        <div class="right_box_text">
-          <p class="subtitle">Clients Satisfaction</p>
-          <p class="subtitle_text experience_value">100%</p>
-        </div>
-        <div class="right_box_text">
-          <p class="subtitle">Projects done</p>
-          <p class="subtitle_text experience_value">100%</p>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </div>
 </section>
 
 <div class="logos">
-  <img src="{% static "img/logos/techcrunch.png" %}" alt="Techcrunch logo" />
-  <img src="{% static "img/logos/business-insider.png" %}" alt="Business-Insider
-  logo" /> <img src="{% static "img/logos/forbes.png" %}" alt="Forbes logo" />
+  <!-- Iterating through the dictionary of Logos -->
+  {% for logo in logos %}
+  <img src="{{logo.image.url}}" alt="{{logo.name}} logo" />
+  {% endfor %}
 </div>
 
 <section id="projects" class="section_projects">
@@ -120,89 +98,32 @@ Abdulsamad | Full-Stack Web Developer {% endblock title %} {% block header %}
     </header>
 
     <div class="project_container grid grid_cols_2 margin_bottom_medium">
+      <!-- Iterating through the dictionary of Projects -->
+      {% for project in projects %}
       <div class="project_card">
         <div>
-          <img src="{% static "./img/projects/ByteLearn.webp" %}" alt="Image of
-          BytheLearn project" class="project_image" />
+          <img
+            src="{{project.image.url}}"
+            alt="Image of
+          {{project.title}} project"
+            class="project_image"
+          />
         </div>
 
         <div class="project_details">
-          <p class="project_title">ByteLearn</p>
-          <p class="project_category">Web development</p>
-          <p class="project_date">November 2024</p>
-          <p class="project_description">
-            A dynamic online learning platform for student on course they might
-            find difficult in class. Built using HTML, CSS, JavaScript, Python
-            Django and PostgreSQL database. It offers videos tutorials and
-            provides an easy to use content management system for instructors to
-            create and upload tutorials.
-          </p>
+          <p class="project_title">{{ project.title }}</p>
+          <p class="project_category">{{project.category}}</p>
+          <p class="project_date">{{project.date}}</p>
+          <p class="project_description">{{ project.description }}</p>
           <div class="project_link_box">
-            <a href="#" class="project_link">View site Live</a>
-            <a href="#" class="project_link">View code on GitHub</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project_card">
-        <div>
-          <img src="{% static "./img/projects/News_Headlines.webp" %}" alt="An
-          Image of News Headlines project" class="project_image" />
-        </div>
-        <div class="project_details">
-          <p class="project_title">News Headlines Hub</p>
-          <p class="project_category">Web & mobile development</p>
-          <p class="project_date">April 2025</p>
-          <p class="project_description">
-            An innovative app designed to help users with a quick overview of
-            categorized news headlines. Built with Python Tkinter, and provides
-            seamless interface for easy navigation. It allows users to access
-            news headlines from various categories, including entertainment,
-            sports, politics, and more. The app is designed to be user-friendly
-            and efficient, making it easy for users to stay updated with the
-            latest news. It includes features such as Saving as text file and
-            sending as email, allowing users to save and share news headlines
-            with ease.
-          </p>
-          <div class="project_link_box">
-            <a href="#" class="project_link" class="project_link"
-              >View site Live</a
-            >
-            <a href="#" class="project_link" class="project_link"
+            <a href="{{project.link}}" class="project_link">View site Live</a>
+            <a href="{{project.github_link}}" class="project_link"
               >View code on GitHub</a
             >
           </div>
         </div>
       </div>
-
-      <div class="project_card">
-        <div>
-          <img src="{% static "./img/projects/Omnifood.webp" %}" alt="An Image
-          of Omnifood project" class="project_image" />
-        </div>
-        <div class="project_details">
-          <p class="project_title">Omnifood</p>
-          <p class="project_category">Web and mobile development</p>
-          <p class="project_date">January 2025</p>
-          <p class="project_description">
-            A comprehensive food delivery app that offers a wide range of
-            healthy meal options. Built with HTML, CSS, JavaScript, and Python
-            Django, it provides a user-friendly interface for easy navigation.
-            The app allows users to browse through various meal plans, customize
-            their orders, and track their deliveries in real time. It also
-            includes features such as meal recommendations, nutritional
-            information, and customer reviews to enhance the user experience.
-          </p>
-          <div class="project_link_box">
-            <a href="#" class="project_link" class="project_link"
-              >View site Live</a
-            >
-            <a href="#" class="project_link" class="project_link"
-              >View code on GitHub</a
-            >
-          </div>
-        </div>
-      </div>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -215,19 +136,20 @@ Abdulsamad | Full-Stack Web Developer {% endblock title %} {% block header %}
       <h2 class="secondary_heading service_heading">Services</h2>
       <div class="service_left_text_box">
         <p>
-          <ion-icon name="finger-print" class="service_left_icon"></ion-icon>
+          <ion-icon
+            name="{{services_text.icon}}"
+            class="service_left_icon"
+          ></ion-icon>
         </p>
-        <p class="service_left_text">
-          With a deep passion for technology and user-centric design, I
-          specialize in building robust web and mobille applications that offer
-          both functionality
-        </p>
+        <p class="service_left_text">{{services_text.text}}</p>
       </div>
     </div>
     <ul class="services_list">
+      <!-- Iterating through the dictionary of services -->
+      {% for service in services %}
       <li class="service_detail">
         <div class="service_header">
-          <h3 class="service_title">Software Development Services</h3>
+          <h3 class="service_title">{{ service.title }}</h3>
           <div>
             <button class="btn_accordion">
               <ion-icon name="add" class="service_right_icon"></ion-icon>
@@ -238,94 +160,19 @@ Abdulsamad | Full-Stack Web Developer {% endblock title %} {% block header %}
           </div>
         </div>
         <div class="service_description">
-          <p>
-            Offering full-stack web and mobile development with a focus on
-            building scalable, efficient, and user-friendly applications. My
-            expertise includes front-end and back-end development, API
-            integration and database management. Note: specializing in
-            technologies such as HTML, CSS, JavaScript, Python Django, and
-            PostgreSQL ensuring seamless integration and optimal performance
-            across all platforms.
-          </p>
+          <p>{{ service.description }}</p>
         </div>
       </li>
-
-      <li class="service_detail">
-        <div class="service_header">
-          <h3 class="service_title">API Integration & Automation</h3>
-          <div>
-            <button class="btn_accordion">
-              <ion-icon name="add" class="service_right_icon"></ion-icon>
-            </button>
-            <button class="btn_accordion">
-              <ion-icon name="remove" class="service_right_icon"></ion-icon>
-            </button>
-          </div>
-        </div>
-        <div class="service_description">
-          <p>
-            Specializing in the integration of third-party APIs to enhance
-            application functionality and streamline processes. My services
-            include automating repetitive tasks, data synchronization, and
-            real-time updates, ensuring that your applications are efficient and
-            up-to-date. I leverage technologies such as Python, JavaScript, and
-            various API protocols to deliver seamless integration solutions.
-          </p>
-        </div>
-      </li>
-
-      <li class="service_detail">
-        <div class="service_header">
-          <h3 class="service_title">Web Crawling and Web Scrapping</h3>
-          <div>
-            <button class="btn_accordion">
-              <ion-icon name="add" class="service_right_icon"></ion-icon>
-            </button>
-            <button class="btn_accordion">
-              <ion-icon name="remove" class="service_right_icon"></ion-icon>
-            </button>
-          </div>
-        </div>
-        <div class="service_description">
-          <p>
-            Providing web crawling and web scraping services to extract valuable
-            data from websites for analysis and decision-making. My expertise
-            includes building custom scrapers, handling dynamic content, and
-            ensuring compliance with legal and ethical standards in data
-            extraction. I utilize tools such as Python BeautifulSoup, Scrapy,
-            and Selenium to deliver accurate and reliable data scraping
-            solutions.
-          </p>
-        </div>
-      </li>
-
-      <li class="service_detail">
-        <div class="service_header">
-          <h3 class="service_title">UI/UX Design</h3>
-          <div>
-            <button class="btn_accordion">
-              <ion-icon name="add" class="service_right_icon"></ion-icon>
-            </button>
-            <button class="btn_accordion">
-              <ion-icon name="remove" class="service_right_icon"></ion-icon>
-            </button>
-          </div>
-        </div>
-        <div class="service_description">
-          <p>
-            Offering UI/UX design services to create intuitive and engaging user
-            interfaces for web and mobile applications. My design process
-            includes user research, wireframing, prototyping, and usability
-            testing to ensure that the final product meets user needs and
-            expectations. I focus on creating visually appealing designs that
-            enhance user experience and drive engagement.
-          </p>
-        </div>
-      </li>
+      {% endfor %}
     </ul>
   </div>
 </section>
 
+<!-- 
+Achievements Section - Carousel 
+Only display if there are achievements 
+-->
+{% if achievements %}
 <section>
   <div class="main_container margin_bottom_medium">
     <header>
@@ -358,33 +205,18 @@ Abdulsamad | Full-Stack Web Developer {% endblock title %} {% block header %}
 
         <!-- The slideshow/carousel -->
         <div class="carousel-inner">
+          <!-- Iterating through the dictionary of Achievements -->
+          {% for award in achievements %}
           <div class="carousel-item achievement active">
             <div class="carousel_header">
-              <p class="award_pos">1st Place</p>
-              <p class="award_name">Design challange</p>
+              <p class="award_pos">{{award.position}}</p>
+              <p class="award_name">{{award.challenge_name}}</p>
             </div>
-            <h3 class="award_title">Best Developer Award</h3>
-            <p class="award_category">web and mobile Development</p>
+            <h3 class="award_title">{{award.title}}</h3>
+            <p class="award_category">{{award.category}}</p>
             <p><ion-icon name="ribbon" class="award_icon"></ion-icon></p>
           </div>
-          <div class="carousel-item achievement">
-            <div class="carousel_header">
-              <p class="award_pos">2nd Place</p>
-              <p class="award_name">Design challange</p>
-            </div>
-            <h3 class="award_title">App of the Year Award &mdash; 2029</h3>
-            <p class="award_category">Mobile Application Development</p>
-            <p><ion-icon name="ribbon" class="award_icon"></ion-icon></p>
-          </div>
-          <div class="carousel-item achievement">
-            <div class="carousel_header">
-              <p class="award_pos">1st Place</p>
-              <p class="award_name">Design challange</p>
-            </div>
-            <h3 class="award_title">Top 10 on Playstore for Tech App</h3>
-            <p class="award_category">Top 10 on Playstore</p>
-            <p><ion-icon name="ribbon" class="award_icon"></ion-icon></p>
-          </div>
+          {% endfor %}
         </div>
 
         <!-- Left and right controls/icons -->
@@ -408,6 +240,7 @@ Abdulsamad | Full-Stack Web Developer {% endblock title %} {% block header %}
     </div>
   </div>
 </section>
+{% endif %}
 
 <section>
   <div class="main_container margin_bottom_medium">
@@ -417,15 +250,11 @@ Abdulsamad | Full-Stack Web Developer {% endblock title %} {% block header %}
         <div class="success_story_text_container">
           <p>
             <ion-icon
-              name="globe-outline"
+              name="{{success_story_text.icon}}"
               class="success_story_icon"
             ></ion-icon>
           </p>
-          <p class="success_story_text">
-            with a deep passion for technology and user-centric design, I
-            specialize in building robust web and mobile applications that offer
-            both functionality
-          </p>
+          <p class="success_story_text">{{success_story_text.text}}</p>
         </div>
       </div>
       <div>
@@ -459,21 +288,17 @@ Abdulsamad | Full-Stack Web Developer {% endblock title %} {% block header %}
             ></button>
           </div>
           <div class="carousel-inner">
+            <!-- Static image for carousel replaced with dynamics -->
+            {% for project in projects %}
             <div class="carousel-item success_story active">
-              <img src="{% static "./img/projects/News_Headlines.webp" %}"
-              class="d-block w-100 carousel_image" alt="Image of News Headlines
-              Project" />
+              <img
+                src="{{project.image.url}}"
+                class="d-block w-100 carousel_image"
+                alt="Image of {{project.title}}
+              Project"
+              />
             </div>
-            <div class="carousel-item success_story">
-              <img src="{% static "./img/projects/ByteLearn.webp" %}"
-              class="d-block w-100 carousel_image" alt="Image of ByteLearn
-              Project" />
-            </div>
-            <div class="carousel-item success_story">
-              <img src="{% static "./img/projects/Omnifood.webp" %}"
-              class="d-block w-100 carousel_image" alt="Image of Omnifood
-              Project" />
-            </div>
+            {% endfor %}
           </div>
           <button
             class="carousel-control-prev"
@@ -497,22 +322,13 @@ Abdulsamad | Full-Stack Web Developer {% endblock title %} {% block header %}
       </div>
     </div>
     <div class="main_container success_stories_box grid grid_cols_4">
+      <!-- Iterating through the dictionary of Success Stories -->
+      {% for story in success_stories %}
       <div class="success_story_item left">
-        <p class="success_story_value">3</p>
-        <p>A robust AI-powered platform designed</p>
+        <p class="success_story_value">{{story.success_count}}</p>
+        <p>{{story.success_description}}</p>
       </div>
-      <div class="success_story_item">
-        <p class="success_story_value">2</p>
-        <p>A dynamic online learning platform for students</p>
-      </div>
-      <div class="success_story_item left">
-        <p class="success_story_value">7</p>
-        <p>Over 7 successful projects on GitHub</p>
-      </div>
-      <div class="success_story_item">
-        <p class="success_story_value">90%</p>
-        <p>Maintained a 90% coustomer satisfaction rate across all projects</p>
-      </div>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -549,22 +365,12 @@ Abdulsamad | Full-Stack Web Developer {% endblock title %} {% block header %}
     </div>
     {% endblock content %} {% block footer %}
     <footer class="main_container footer margin_bottom_medium">
-      <a href="discordapp.com/users/1213439587624681542" target="_blank"
-        ><ion-icon name="logo-discord" class="footer_icon"></ion-icon
+      <!-- Iterating through the dictionary of Social Media links -->
+      {% for link in footer_social_links %}
+      <a href="{{link.url}}" target="_blank"
+        ><ion-icon name="{{link.icon}}" class="footer_icon"></ion-icon
       ></a>
-      <a
-        href="https://www.linkedin.com/in/abdulsamad-abdullahi-4a39852b6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-        target="_blank"
-        ><ion-icon name="logo-linkedin" class="footer_icon"></ion-icon
-      ></a>
-      <a
-        href="https://x.com/Sammyblaq411?t=XlLYlvXoTHnoAsUiuf3M-Q&s=08"
-        target="_blank"
-        ><ion-icon name="logo-twitter" class="footer_icon"></ion-icon
-      ></a>
-      <a href="https://wa.me/+2347080525117" target="_blank"
-        ><ion-icon name="logo-whatsapp" class="footer_icon"></ion-icon
-      ></a>
+      {% endfor %}
     </footer>
     {% endblock footer %}
   </div>
