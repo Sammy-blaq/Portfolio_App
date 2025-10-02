@@ -72,11 +72,15 @@ class Email(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=100, blank=False)
     message = models.TextField()
+    date = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.email
 
 
 class AboutWork(models.Model):
     title = models.CharField(max_length=200)
-    number = models.IntegerField()
+    number = models.CharField(max_length=50)
 
     def __str__(self):
         return self.title
@@ -99,3 +103,11 @@ class HeadingText(models.Model):
 class SuccessStory(models.Model):
     success_count = models.IntegerField()
     success_description = models.CharField(max_length=100)
+
+class SocialLink(models.Model):
+    platform = models.CharField(max_length=100)
+    url = models.URLField(max_length=200)
+    icon = models.CharField(max_length=100)  # You can store icon class names or paths
+
+    def __str__(self):
+        return self.platform
