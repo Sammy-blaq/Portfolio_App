@@ -55,6 +55,7 @@ Abdulsamad | Full-Stack Web Developer {% endblock title %} {% block header %}
                   alt="Image of the developer"
                   width="200"
                   class="developer_image"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -87,7 +88,7 @@ Abdulsamad | Full-Stack Web Developer {% endblock title %} {% block header %}
 <div class="logos">
   <!-- Iterating through the dictionary of Logos -->
   {% for logo in logos %}
-  <img src="{{logo.image.url}}" alt="{{logo.name}} logo" />
+  <img src="{{logo.image.url}}" alt="{{logo.name}} logo" loading="lazy" />
   {% endfor %}
 </div>
 
@@ -107,6 +108,7 @@ Abdulsamad | Full-Stack Web Developer {% endblock title %} {% block header %}
             alt="Image of
           {{project.title}} project"
             class="project_image"
+            loading="lazy"
           />
         </div>
 
@@ -296,6 +298,7 @@ Only display if there are achievements
                 class="d-block w-100 carousel_image"
                 alt="Image of {{project.title}}
               Project"
+                loading="lazy"
               />
             </div>
             {% endfor %}
