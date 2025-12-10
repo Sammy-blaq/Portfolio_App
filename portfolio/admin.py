@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Biography, Service, Logos, Project, Achievement, Skill, HeadingText, Email, ExtraText, AboutWork, SuccessStory, SocialLink
+from .models import Biography, Service, Logos, Project, Achievement, Skill, HeadingText, Email, ExtraText, AboutWork, SuccessStory, SocialLink, TechStack
 
 class ProjectAdmin(admin.ModelAdmin):
   # Define field under a Pre-defined Title
@@ -50,6 +50,12 @@ class SuccssStoryAdmin(admin.ModelAdmin):
     'success_description',
   ]
 
+class TechStackAdmin(admin.ModelAdmin):
+  list_display = [
+    'name',
+    'icon',
+    'proficiency',
+  ]
 
 # Register your models here.
 admin.site.register(Biography)
@@ -64,3 +70,4 @@ admin.site.register(ExtraText)
 admin.site.register(AboutWork)
 admin.site.register(SuccessStory, SuccssStoryAdmin)
 admin.site.register(SocialLink, SocialLinkAdmin)
+admin.site.register(TechStack, TechStackAdmin)

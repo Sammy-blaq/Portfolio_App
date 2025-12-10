@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 # Importing my Models
-from .models import Email, Project, Skill, Service, SuccessStory, AboutWork, Achievement, HeadingText, ExtraText, Logos, Biography, SocialLink
+from .models import Email, Project, Skill, Service, SuccessStory, AboutWork, Achievement, HeadingText, ExtraText, Logos, Biography, SocialLink, TechStack
 
 # Importing Email Form
 from . forms import EmailForm
@@ -26,6 +26,7 @@ def index(request):
     services_text = ExtraText.objects.first()
     about_work = AboutWork.objects.all()
     achievements = Achievement.objects.all()
+    tech_stacks = TechStack.objects.all()
 
     context = {
         'form': form,
@@ -42,6 +43,7 @@ def index(request):
         'services_text': services_text,
         'about_work': about_work,
         'achievements': achievements,
+        'tech_stacks': tech_stacks,
     }
 
     if (request.method == 'POST'):

@@ -111,3 +111,11 @@ class SocialLink(models.Model):
 
     def __str__(self):
         return self.platform
+
+class TechStack(models.Model):
+    name = models.CharField(max_length=100)
+    icon = models.CharField(max_length=100)  # You can store icon class names or paths
+    proficiency = models.IntegerField()  # Percentage from 0 to 100
+
+    def __str__(self):
+        return self.name
